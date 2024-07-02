@@ -1,15 +1,21 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import React from "react";
 import "./App.css";
 
 function App() {
   return (
-    <>
-      <div>
-        <h1>bruh</h1>
+    <div className="app-container">
+      <div className="sidebar">
+        <h1>testtext</h1>
+        <nav>
+          <ul>
+            <li>projects</li>
+            <li>about</li>
+            <li>misc</li>
+          </ul>
+        </nav>
       </div>
-    </>
+      <div className="main-content">{/* Main content will go here */}</div>
+    </div>
   );
 }
 
