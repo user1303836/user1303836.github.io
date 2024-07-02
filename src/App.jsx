@@ -1,3 +1,4 @@
+import { Canvas } from "@react-three/fiber";
 import React, { useEffect, useRef } from "react";
 import anime from "animejs";
 
