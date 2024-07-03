@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import anime from "animejs";
 import ProjectMenu from "./ProjectMenu";
+import GenericSection from "./GenericSection";
 
 const Section = (props) => {
   const { children } = props;
@@ -22,7 +23,7 @@ const SectionHeader = (props) => {
   const { children, onClick } = props;
   return (
     <h1
-      className="cursor-pointer hover:text-gray-400 transition-colors"
+      className="cursor-pointer hover:text-gray-400 transition-colors user-select-none"
       onClick={onClick}
     >
       {children}
@@ -33,31 +34,40 @@ const SectionHeader = (props) => {
 const HomeSection = () => {
   return (
     <Section>
-      <SectionHeader>home</SectionHeader>
+      <SectionHeader>jw</SectionHeader>
     </Section>
   );
 };
 
-const ProjectsSection = () => {
-  const [showProjects, setShowProjects] = useState(false);
-
+const ProjectsSection = ({ isOpen, toggleSection }) => {
   return (
     <div className="relative inline-block">
       <Section>
-        <SectionHeader onClick={() => setShowProjects(!showProjects)}>
-          projects
-        </SectionHeader>
+        <SectionHeader onClick={toggleSection}>projects</SectionHeader>
       </Section>
-      <ProjectMenu isOpen={showProjects} />
+      <ProjectMenu isOpen={isOpen} />
     </div>
   );
 };
 
-const AboutSection = () => {
+const AboutSection = ({ isOpen, toggleSection }) => {
+  const aboutContent = (
+    <>
+      <h1 className="text-xl font-bold mb-4">header text</h1>
+      <p>
+        body text body text body text body text body text body text body text
+        body text{" "}
+      </p>
+    </>
+  );
+
   return (
-    <Section>
-      <SectionHeader>about</SectionHeader>
-    </Section>
+    <div className="relative inline-block">
+      <Section>
+        <SectionHeader onClick={toggleSection}>about</SectionHeader>
+      </Section>
+      <GenericSection isOpen={isOpen} content={aboutContent} />
+    </div>
   );
 };
 
@@ -97,21 +107,83 @@ const MiscSection = () => {
   );
 };
 
-const MiscSection2 = () => {
+const MiscSection2 = ({ isOpen, toggleSection }) => {
+  const miscContent = (
+    <>
+      <h1 className="text-xl font-bold mb-4">misc header</h1>
+      <p>
+        misc body text misc body text misc body text misc body text misc body
+        text body text body text body text body text body text body text body
+        text{" "}
+      </p>
+    </>
+  );
+
   return (
-    <Section>
-      <SectionHeader>misc</SectionHeader>
-    </Section>
+    <div className="relative inline-block">
+      <Section>
+        <SectionHeader onClick={toggleSection}>misc</SectionHeader>
+      </Section>
+      <GenericSection isOpen={isOpen} content={miscContent} />
+    </div>
+  );
+};
+
+const MiscSection3 = ({ isOpen, toggleSection }) => {
+  const moreMiscContent = (
+    <>
+      <h1 className="text-xl font-bold mb-4">gzm header</h1>
+      <p>
+        tmnxeq — Today at 3:33 PM kang understands derivs shows he is more perp
+        punter than vc tmnxeq — Today at 3:35 PM might be cex related too fresh
+        spot deposit from user easy naked short for in-house MM lawlchun — Today
+        at 3:37 PM Always a good sign when the candle is so red it cuts off half
+        of the volume tmnxeq — Today at 3:54 PM blip 2 has already been approved
+        by the progress council and based on community feedback points will be
+        granted to blast holders retroactively since time of tge.
+      </p>
+    </>
+  );
+  return (
+    <div className="relative inline-block">
+      <Section>
+        <SectionHeader onClick={toggleSection}>gzm</SectionHeader>
+      </Section>
+      <GenericSection isOpen={isOpen} content={moreMiscContent} />
+    </div>
   );
 };
 
 export const Interface = () => {
+  const [openSection, setOpenSection] = useState(null);
+
+  const toggleSection = (sectionName) => {
+    if (openSection === sectionName) {
+      setOpenSection(null);
+    } else {
+      setOpenSection(sectionName);
+    }
+  };
+
   return (
-    <div className="absolute top-0 left-0 p-2 w-full h-full flex flex-col items-start z-10">
+    <div className="absolute top-0 left-0 p-0 w-full h-full flex flex-col items-start z-10">
       <HomeSection />
-      <ProjectsSection />
-      <AboutSection />
-      <MiscSection2 />
+      <ProjectsSection
+        isOpen={openSection === "projects"}
+        toggleSection={() => toggleSection("projects")}
+      />
+      <AboutSection
+        isOpen={openSection === "about"}
+        toggleSection={() => toggleSection("about")}
+      />
+      <MiscSection2
+        isOpen={openSection === "misc"}
+        toggleSection={() => toggleSection("misc")}
+      />
+      <MiscSection3
+        isOpen={openSection === "gzm"}
+        toggleSection={() => toggleSection("gzm")}
+      />
     </div>
   );
 };
