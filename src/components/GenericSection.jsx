@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import anime from "animejs";
 
-const GenericSection = ({ isOpen }) => {
+const GenericSection = ({ isOpen, content }) => {
   const menuRef = useRef(null);
   const isInitialRender = useRef(true);
 
@@ -16,18 +16,18 @@ const GenericSection = ({ isOpen }) => {
       translateX: isOpen ? ["-100%", "0%"] : ["0%", "-500%"],
       opacity: isOpen ? [-2, 1] : [1, -1],
       easing: "easeInOutSine",
-      duration: 50,
+      duration: 10,
     });
   }, [isOpen]);
 
   return (
     <div
       ref={menuRef}
-      className={`absolute left-full top-0 p-0 h-full w-60 project-menu-initial-state ${
+      className={`fixed top-0 left-20 p-0 h-full w-80 project-menu-initial-state ${
         !isInitialRender.current ? "transform" : ""
       } z-20`}
     >
-      <h1>blah</h1>
+      <div className="p-0">{content}</div>
     </div>
   );
 };
