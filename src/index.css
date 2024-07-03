@@ -9,3 +9,9 @@
 body {
   margin: 0;
 }
+
+.project-menu-initial-state {
+  transform: translateX(-100%);
+  opacity: 0;
+  z-index: -1;
+}

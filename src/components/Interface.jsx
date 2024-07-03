@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import anime from "animejs";
+import ProjectMenu from "./ProjectMenu";
 
 const Section = (props) => {
   const { children } = props;
@@ -7,8 +8,9 @@ const Section = (props) => {
     <section
       className={`
         hover:backdrop-hue-rotate-30
-        w-screen p-4 mx-auto flex flex-col items-start justify-center
+        w-60 p-0 flex flex-col items-start justify-center
         transition-[backdrop-filter] duration-1000 ease-in-out
+        relative
     `}
     >
       {children}
@@ -16,26 +18,45 @@ const Section = (props) => {
   );
 };
 
+const SectionHeader = (props) => {
+  const { children, onClick } = props;
+  return (
+    <h1
+      className="cursor-pointer hover:text-gray-400 transition-colors"
+      onClick={onClick}
+    >
+      {children}
+    </h1>
+  );
+};
+
 const HomeSection = () => {
   return (
     <Section>
-      <h1>home section placeholder text</h1>
+      <SectionHeader>home</SectionHeader>
     </Section>
   );
 };
 
 const ProjectsSection = () => {
+  const [showProjects, setShowProjects] = useState(false);
+
   return (
-    <Section>
-      <h1>projects section placeholder text</h1>
-    </Section>
+    <div className="relative inline-block">
+      <Section>
+        <SectionHeader onClick={() => setShowProjects(!showProjects)}>
+          projects
+        </SectionHeader>
+      </Section>
+      <ProjectMenu isOpen={showProjects} />
+    </div>
   );
 };
 
 const AboutSection = () => {
   return (
     <Section>
-      <h1>misc section placeholder text</h1>
+      <SectionHeader>about</SectionHeader>
     </Section>
   );
 };
@@ -78,7 +99,7 @@ const MiscSection = () => {
 
 export const Interface = () => {
   return (
-    <div className="flex flex-col items-center w-screen">
+    <div className="absolute top-0 left-0 p-2 w-full h-full flex flex-col items-start z-10">
       <HomeSection />
       <ProjectsSection />
       <AboutSection />
