@@ -20,10 +20,10 @@ const ProjectMenu = ({ isOpen }) => {
 
     anime({
       targets: menuRef.current,
-      translateX: isOpen ? ["-100%", "0%"] : ["0%", "-100%"],
-      opacity: isOpen ? [-3, 1] : [1, -3],
+      translateX: isOpen ? ["-100%", "0%"] : ["0%", "-500%"],
+      opacity: isOpen ? [-2, 1] : [1, -1],
       easing: "easeInOutSine",
-      duration: 600,
+      duration: 50,
     });
   }, [isOpen]);
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import anime from "animejs";
 import ProjectMenu from "./ProjectMenu";
+import GenericSection from "./GenericSection";
 
 const Section = (props) => {
   const { children } = props;
@@ -22,7 +23,7 @@ const SectionHeader = (props) => {
   const { children, onClick } = props;
   return (
     <h1
-      className="cursor-pointer hover:text-gray-400 transition-colors"
+      className="cursor-pointer hover:text-gray-400 transition-colors user-select-none"
       onClick={onClick}
     >
       {children}
@@ -33,7 +34,7 @@ const SectionHeader = (props) => {
 const HomeSection = () => {
   return (
     <Section>
-      <SectionHeader>home</SectionHeader>
+      <SectionHeader>jw</SectionHeader>
     </Section>
   );
 };
@@ -54,10 +55,17 @@ const ProjectsSection = () => {
 };
 
 const AboutSection = () => {
+  const [showAbout, setShowAbout] = useState(false);
+
   return (
-    <Section>
-      <SectionHeader>about</SectionHeader>
-    </Section>
+    <div className="relative inline-block">
+      <Section>
+        <SectionHeader onClick={() => setShowAbout(!showAbout)}>
+          about
+        </SectionHeader>
+      </Section>
+      <GenericSection isOpen={showAbout} />
+    </div>
   );
 };
 
