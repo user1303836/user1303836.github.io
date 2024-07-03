@@ -105,6 +105,14 @@ const MiscSection2 = () => {
   );
 };
 
+const MiscSection3 = () => {
+  return (
+    <Section>
+      <SectionHeader>gzm</SectionHeader>
+    </Section>
+  );
+};
+
 export const Interface = () => {
   return (
     <div className="absolute top-0 left-0 p-2 w-full h-full flex flex-col items-start z-10">
@@ -112,6 +120,7 @@ export const Interface = () => {
       <ProjectsSection />
       <AboutSection />
       <MiscSection2 />
+      <MiscSection3 />
     </div>
   );
 };
