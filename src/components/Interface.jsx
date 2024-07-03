@@ -8,7 +8,7 @@ const Section = (props) => {
     <section
       className={`
         hover:backdrop-hue-rotate-30
-        w-60 p-0 flex flex-col items-start justify-center
+        w-20 p-0 flex flex-col items-start justify-center
         transition-[backdrop-filter] duration-1000 ease-in-out
         relative
     `}
@@ -97,13 +97,21 @@ const MiscSection = () => {
   );
 };
 
+const MiscSection2 = () => {
+  return (
+    <Section>
+      <SectionHeader>misc</SectionHeader>
+    </Section>
+  );
+};
+
 export const Interface = () => {
   return (
     <div className="absolute top-0 left-0 p-2 w-full h-full flex flex-col items-start z-10">
       <HomeSection />
       <ProjectsSection />
       <AboutSection />
-      <MiscSection />
+      <MiscSection2 />
     </div>
   );
 };

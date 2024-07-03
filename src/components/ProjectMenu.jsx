@@ -20,9 +20,9 @@ const ProjectMenu = ({ isOpen }) => {
 
     anime({
       targets: menuRef.current,
-      translateX: isOpen ? ["0%", "100%"] : ["100%", "0%"],
-      opacity: isOpen ? [0, 1] : [1, 0],
-      easing: "easeInOutQuad",
+      translateX: isOpen ? ["-100%", "0%"] : ["0%", "-100%"],
+      opacity: isOpen ? [-3, 1] : [1, -3],
+      easing: "easeInOutSine",
       duration: 600,
     });
   }, [isOpen]);
@@ -30,7 +30,7 @@ const ProjectMenu = ({ isOpen }) => {
   return (
     <div
       ref={menuRef}
-      className={`absolute -right-full top-0 p-0 h-full w-60 project-menu-initial-state ${
+      className={`absolute left-full top-0 p-0 h-full w-60 project-menu-initial-state ${
         !isInitialRender.current ? "transform" : ""
       } z-20`}
     >
