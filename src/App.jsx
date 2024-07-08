@@ -6,7 +6,11 @@ import { Interface } from "./components/Interface";
 function App() {
   return (
     <>
-      <Canvas shadows camera={{ position: [3, 3, 3], fov: 30 }}>
+      <Canvas
+        shadows
+        dpr={[1, 1.5]}
+        camera={{ position: [-1.5, 1, 5.5], fov: 45, near: 1, far: 20 }}
+      >
         <color attach="background" args={["#ececec"]} />
         <ScrollControls pages={4} damping={0.1}>
           <Experience />

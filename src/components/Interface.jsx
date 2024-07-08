@@ -134,12 +134,12 @@ const MiscSection3 = ({ isOpen, toggleSection }) => {
     <>
       <h1 className="text-xl font-bold mb-4">gzm header</h1>
       <p>
-        tmnxeq — Today at 3:33 PM kang understands derivs shows he is more perp
-        punter than vc tmnxeq — Today at 3:35 PM might be cex related too fresh
-        spot deposit from user easy naked short for in-house MM lawlchun — Today
-        at 3:37 PM Always a good sign when the candle is so red it cuts off half
-        of the volume tmnxeq — Today at 3:54 PM blip 2 has already been approved
-        by the progress council and based on community feedback points will be
+        zzqeq — Today at 3:33 PM kang understands derivs shows he is more perp
+        punter than vc zzqeq — Today at 3:35 PM might be cex related too fresh
+        spot deposit from user easy naked short for in-house MM fxp — Today at
+        3:37 PM Always a good sign when the candle is so red it cuts off half of
+        the volume zzqeq — Today at 3:54 PM blip 2 has already been approved by
+        the progress council and based on community feedback points will be
         granted to blast holders retroactively since time of tge.
       </p>
     </>

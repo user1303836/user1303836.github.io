@@ -2,9 +2,12 @@ import React, { useEffect, useRef } from "react";
 import anime from "animejs";
 
 const projects = [
-  { name: "maxmsp-utils", url: "https://user1303836.github.io/" },
-  { name: "solana-newpair-sniper", url: "https://user1303836.github.io/" },
-  { name: "yt-sampler", url: "https://user1303836.github.io/" },
+  { name: "maxmsp-utils", url: "https://github.com/user1303836/maxmsp-utils" },
+  {
+    name: "solana-newpair-sniper",
+    url: "https://github.com/user1303836/sol-newpair-sniper",
+  },
+  { name: "yt-sampler", url: "https://github.com/user1303836/yt-sampler" },
   { name: "chatter", url: "https://user1303836.github.io/" },
 ];
 
